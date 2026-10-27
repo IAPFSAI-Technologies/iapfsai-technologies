@@ -7,17 +7,18 @@
     <title>IAPFSAI Technologies — Software that moves business forward</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
     <style>
       :root {
-        --ink: #12222c;
-        --muted: #64737b;
-        --line: #dce5e7;
-        --paper: #f7fbfa;
-        --teal: #0c8b87;
-        --teal-dark: #076f6c;
-        --mint: #d9f3ec;
-        --yellow: #f8c75e;
+        --ink: #18252b;
+        --muted: #667276;
+        --line: #d8dedb;
+        --paper: #f5f6f1;
+        --teal: #087c78;
+        --teal-dark: #055d5a;
+        --mint: #d7eee6;
+        --yellow: #e8ad45;
+        --coral: #e8785f;
         --white: #fff;
         --radius: 18px;
       }
@@ -25,26 +26,29 @@
       html { scroll-behavior: smooth; }
       body { margin: 0; color: var(--ink); background: var(--paper); font-family: "DM Sans", sans-serif; line-height: 1.55; }
       a { color: inherit; text-decoration: none; }
+      :focus-visible { outline: 3px solid var(--yellow); outline-offset: 4px; }
       .wrap { width: min(1120px, calc(100% - 48px)); margin: auto; }
       .topbar { background: var(--ink); color: #d4e4e3; font-size: 13px; padding: 9px 0; }
       .topbar .wrap { display: flex; justify-content: space-between; gap: 20px; }
       .topbar strong { color: #fff; }
-      header { background: var(--paper); border-bottom: 1px solid rgba(220,229,231,.75); position: sticky; top: 0; z-index: 20; backdrop-filter: blur(14px); }
+      header { background: rgba(245,246,241,.88); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; backdrop-filter: blur(14px); }
       nav { display: flex; align-items: center; justify-content: space-between; height: 78px; }
       .logo { display: flex; align-items: center; gap: 10px; font-family: "Space Grotesk", sans-serif; font-size: 19px; font-weight: 700; letter-spacing: -.05em; }
-      .logo-mark { display: grid; place-items: center; width: 35px; height: 35px; color: #fff; background: var(--teal); border-radius: 10px 10px 10px 3px; font-size: 16px; }
+      .logo-mark { display: grid; place-items: center; width: 35px; height: 35px; color: #fff; background: var(--teal); border-radius: 50%; font: 700 12px "Space Grotesk"; }
       .logo span span { color: var(--teal); }
       .nav-links { display: flex; align-items: center; gap: 29px; font-size: 14px; color: #44545b; }
       .nav-links a:hover { color: var(--teal); }
-      .button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 7px; background: var(--teal); color: #fff; padding: 13px 20px; font-weight: 600; font-size: 14px; cursor: pointer; transition: .2s ease; }
+      .button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 999px; background: var(--teal); color: #fff; padding: 13px 20px; font-weight: 600; font-size: 14px; cursor: pointer; transition: transform .2s ease, background .2s ease, box-shadow .2s ease; }
       .button:hover { background: var(--teal-dark); transform: translateY(-2px); }
       .button.light { background: #e6f4f0; color: var(--teal-dark); }
       .button.light:hover { background: #ccece5; }
       .menu { display: none; border: 0; background: none; color: var(--ink); font-size: 25px; }
-      .hero { padding: 89px 0 94px; overflow: hidden; background: radial-gradient(circle at 87% 35%, #dff3ed 0, transparent 31%), var(--paper); }
+      .hero { padding: 104px 0 112px; overflow: hidden; background-color: var(--paper); background-image: linear-gradient(rgba(24,37,43,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(24,37,43,.045) 1px, transparent 1px); background-size: 42px 42px; }
+      .hero > .wrap { position: relative; }
+      .hero > .wrap:before { content: ""; position: absolute; width: 11px; height: 11px; right: 43%; top: -36px; border-radius: 50%; background: var(--coral); box-shadow: 0 0 0 8px #e8785f1c; }
       .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 72px; }
       .eyebrow { color: var(--teal); text-transform: uppercase; letter-spacing: .15em; font-size: 11px; font-weight: 700; }
-      h1, h2, h3 { font-family: "Space Grotesk", sans-serif; letter-spacing: -.055em; line-height: 1.07; margin: 0; }
+      h1, h2, h3 { font-family: "Syne", "Space Grotesk", sans-serif; letter-spacing: -.06em; line-height: 1.07; margin: 0; }
       h1 { font-size: clamp(45px, 5.2vw, 71px); max-width: 650px; margin: 20px 0; }
       h1 em { color: var(--teal); font-style: normal; }
       .hero-copy { max-width: 560px; color: var(--muted); font-size: 17px; }
@@ -55,7 +59,7 @@
       .orbit { position: absolute; inset: 14px 0 0 18px; border: 1px solid #b9ddd5; border-radius: 50%; transform: rotate(-17deg); }
       .orbit:before, .orbit:after { content: ""; position: absolute; border: 1px solid #cae7e0; border-radius: 50%; inset: 28px 40px; }
       .orbit:after { inset: 59px 83px; }
-      .dashboard { position: absolute; right: 12px; top: 50px; width: min(370px, 90%); padding: 19px; background: rgba(255,255,255,.92); box-shadow: 0 22px 65px rgba(21,82,80,.18); border: 1px solid #e1efec; border-radius: 16px; transform: rotate(4deg); }
+      .dashboard { position: absolute; right: 12px; top: 50px; width: min(370px, 90%); padding: 19px; background: rgba(255,255,255,.94); box-shadow: 18px 22px 0 #d9e7e1, 0 22px 65px rgba(21,82,80,.12); border: 1px solid #c9d9d3; border-radius: 5px; transform: rotate(4deg); }
       .dash-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 18px; border-bottom: 1px solid var(--line); font-size: 12px; font-weight: 700; }
       .live { color: var(--teal); font-size: 10px; font-weight: 700; }
       .live:before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 5px; background: #56be82; border-radius: 50%; }
@@ -66,7 +70,7 @@
       .chart { display: flex; align-items: end; gap: 7px; height: 110px; padding: 17px 10px 0; border-bottom: 1px solid var(--line); }
       .bar { flex: 1; background: #a7ddd0; border-radius: 4px 4px 0 0; }
       .bar:nth-child(2n) { background: var(--teal); }
-      .floating { position: absolute; left: 6px; bottom: 45px; padding: 14px 17px; background: var(--ink); color: #fff; border-radius: 10px; box-shadow: 0 12px 30px #173a3a2b; font-size: 12px; }
+      .floating { position: absolute; left: 6px; bottom: 45px; padding: 14px 17px; background: var(--ink); color: #fff; border-radius: 4px; box-shadow: 8px 8px 0 var(--coral); font-size: 12px; }
       .floating b { display: block; color: var(--yellow); font: 700 21px "Space Grotesk"; }
       .section { padding: 105px 0; }
       .section-head { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin-bottom: 43px; }
@@ -82,8 +86,8 @@
       .pillar h3 { font-size: 22px; margin-bottom: 12px; }
       .pillar p { color: #a4b8bb; font-size: 14px; }
       .products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-      .product { position: relative; min-height: 310px; padding: 28px; overflow: hidden; background: #e8f4f0; border-radius: var(--radius); }
-      .product:nth-child(2) { background: #e8edf5; }
+      .product { position: relative; min-height: 310px; padding: 28px; overflow: hidden; background: #e3f0e9; border: 1px solid #c8ded4; border-radius: 5px; }
+      .product:nth-child(2) { background: #e9e9f0; border-color: #d4d3e2; }
       .product-label { display: flex; justify-content: space-between; color: var(--teal-dark); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
       .product h3 { font-size: 29px; margin: 25px 0 12px; }
       .product p { max-width: 380px; color: var(--muted); font-size: 14px; }
@@ -101,7 +105,7 @@
       .step p { color: var(--muted); font-size: 14px; }
       .step small { display: inline-block; margin-top: 13px; padding: 6px 9px; background: #e5f3ef; color: var(--teal-dark); border-radius: 4px; font-size: 11px; font-weight: 700; }
       .industries { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-      .industry { padding: 21px; min-height: 125px; background: #fff; border: 1px solid var(--line); border-radius: 11px; transition: .2s; }
+      .industry { padding: 21px; min-height: 125px; background: #fff; border: 1px solid var(--line); border-radius: 5px; transition: .2s; }
       .industry:hover { border-color: var(--teal); transform: translateY(-3px); }
       .industry b { display: block; font-family: "Space Grotesk"; font-size: 16px; }
       .industry p { margin: 9px 0 0; color: var(--muted); font-size: 12px; }
@@ -117,11 +121,18 @@
       .faq-answer p { margin: -4px 0 20px; }
       .faq-item.open .faq-answer { max-height: 100px; }
       .faq-item.open .faq-question span { transform: rotate(45deg); }
-      .cta { padding: 90px 0; background: var(--teal); color: #fff; text-align: center; }
+      .cta { padding: 90px 0; background: var(--teal); color: #fff; text-align: center; position: relative; overflow: hidden; }
+      .cta:before { content: ""; position: absolute; width: 270px; height: 270px; border: 1px solid #ffffff3d; border-radius: 50%; top: -130px; left: 7%; }
+      .cta:after { content: ""; position: absolute; width: 180px; height: 180px; border: 1px solid #ffffff3d; border-radius: 50%; right: 9%; bottom: -100px; }
+      .cta .wrap { position: relative; z-index: 1; }
       .cta h2 { max-width: 650px; margin: 16px auto; font-size: clamp(36px, 5vw, 59px); }
       .cta p { max-width: 570px; margin: auto; color: #d7f0eb; }
       .cta .button { margin-top: 29px; background: #fff; color: var(--teal-dark); }
       footer { padding: 28px 0; background: #0c1a21; color: #90a8aa; font-size: 12px; }
+      @media (prefers-reduced-motion: no-preference) {
+        .hero-art { animation: float 7s ease-in-out infinite; }
+        @keyframes float { 50% { transform: translateY(-8px); } }
+      }
       footer .wrap { display: flex; justify-content: space-between; gap: 20px; }
       @media (max-width: 780px) {
         .wrap { width: min(100% - 34px, 580px); }
@@ -153,7 +164,7 @@
     <div class="topbar"><div class="wrap"><strong>AI · Software · Cloud · Digital Solutions</strong><span>Technology partner for modern businesses →</span></div></div>
     <header>
       <nav class="wrap">
-        <a class="logo" href="#"><span class="logo-mark">✦</span><span>IAPFSAI <span>Technologies</span></span></a>
+        <a class="logo" href="#"><span class="logo-mark">IA</span><span>IAPFSAI <span>Technologies</span></span></a>
         <button class="menu" aria-label="Toggle navigation">☰</button>
         <div class="nav-links">
           <a href="#solutions">Solutions</a><a href="#process">How we work</a><a href="#industries">Industries</a><a href="#faq">FAQ</a>
@@ -178,7 +189,7 @@
           </div>
         </div>
       </section>
-      <section class="section dark"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Why IAPFSAI</div><h2>A true technology partner, not another vendor.</h2></div><p>Clear milestones, senior engineering talent, and a long-term mindset. We make complex technology feel simple and progress feel visible.</p></div><div class="pillars"><article class="pillar"><div class="icon">◈</div><h3>Built for outcomes</h3><p>We connect every technical decision to a measurable business goal, from faster turnaround to lower operating costs.</p></article><article class="pillar"><div class="icon">⌁</div><h3>Radical transparency</h3><p>Weekly live demos, direct communication, and clear milestone-based delivery with zero agency fluff.</p></article><article class="pillar"><div class="icon">↗</div><h3>Ready to scale</h3><p>Secure foundations, maintainable code, and cloud architecture designed for your next stage of growth.</p></article></div></div></section>
+      <section class="section dark"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Why IAPFSAI</div><h2>A true technology partner, not another vendor.</h2></div><p>Clear milestones, senior engineering talent, and a long-term mindset. We make complex technology feel simple and progress feel visible.</p></div><div class="pillars"><article class="pillar"><div class="icon" aria-hidden="true">01</div><h3>Built for outcomes</h3><p>We connect every technical decision to a measurable business goal, from faster turnaround to lower operating costs.</p></article><article class="pillar"><div class="icon" aria-hidden="true">02</div><h3>Radical transparency</h3><p>Weekly live demos, direct communication, and clear milestone-based delivery with zero agency fluff.</p></article><article class="pillar"><div class="icon" aria-hidden="true">03</div><h3>Ready to scale</h3><p>Secure foundations, maintainable code, and cloud architecture designed for your next stage of growth.</p></article></div></div></section>
       <section class="section" id="solutions"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Our products</div><h2>Software that solves real problems.</h2></div><p>From career growth to enterprise operations, our products combine thoughtful design with practical AI.</p></div><div class="products"><article class="product"><div class="product-label"><span>Production · Early growth</span><span>01</span></div><h3>ResumeCareerAI</h3><p>An AI-powered career growth platform designed for high ATS pass rates and more confident job searches.</p><ul><li>ATS-friendly resume building</li><li>AI suggestions and job matching</li><li>Career insights and skill recommendations</li></ul><div class="product-art"><div></div><div></div><div></div><div style="width:48%"></div></div></article><article class="product"><div class="product-label"><span>Production · Enterprise</span><span>02</span></div><h3>ERP AI Solution</h3><p>A modern ERP with intelligent automation for growing businesses and multi-plant operations.</p><ul><li>Finance, inventory and user management</li><li>AI-powered insights and workflows</li><li>Built to scale from SMB to enterprise</li></ul><div class="product-art"><div></div><div></div><div></div><div style="width:75%"></div></div></article></div></div></section>
       <section class="section" id="process" style="background:#fff"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Our process</div><h2>Clear steps. No surprises.</h2></div><p>We believe great software is built through close collaboration, useful feedback, and a shared view of the finish line.</p></div><div class="process"><article class="step"><div class="step-number">01 / DISCOVER & PLAN</div><h3>Find the right path.</h3><p>We unpack your requirements, architecture, and business goals to create a focused roadmap with fixed scope and timeline.</p><small>Milestone-based delivery</small></article><article class="step"><div class="step-number">02 / DESIGN & BUILD</div><h3>Make progress visible.</h3><p>Agile two-week sprints, weekly live demos, continuous staging deployments, and clean code reviews keep you close to the work.</p><small>100% transparency</small></article><article class="step"><div class="step-number">03 / DEPLOY & SCALE</div><h3>Launch with confidence.</h3><p>We harden your infrastructure, automate deployment, train your team, and stay close with warranty and SLA support.</p><small>Long-term partnership</small></article></div></div></section>
       <section class="section" id="industries"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Industries we serve</div><h2>Deep context. Better solutions.</h2></div><p>We bring product thinking and domain awareness to complex workflows across critical sectors.</p></div><div class="industries"><a class="industry" href="#contact"><b>Technology & SaaS</b><p>Platforms, microservices, AI-enabled software →</p></a><a class="industry" href="#contact"><b>Manufacturing</b><p>Shop-floor and supply chain automation →</p></a><a class="industry" href="#contact"><b>Healthcare</b><p>Patient portals and diagnostic workflows →</p></a><a class="industry" href="#contact"><b>Education</b><p>LMS, assessment and learner analytics →</p></a><a class="industry" href="#contact"><b>Retail & Commerce</b><p>Inventory sync and recommendations →</p></a><a class="industry" href="#contact"><b>Finance & FinTech</b><p>Reconciliation and fraud screening →</p></a><a class="industry" href="#contact"><b>Real Estate</b><p>Property and site management →</p></a><a class="industry" href="#contact"><b>Professional Services</b><p>Contracting and document intelligence →</p></a></div></div></section>
